@@ -12,3 +12,10 @@ My folder structure is as follows:
   - `/stlink`
   - `/STM32F4-Discovery_FW_V1.1.0`
   - `/arm-gnu-toolchain-13.3.rel1-x86_64-arm-none-eabi`
+
+An important StackOverflow article from which I have shamelessly copy-pasted a 
+solution because I did not have the breadth of knowledge to understand it properly
+
+> `Errors with _sbrk` and other similar errors which created compilation issues
+
+https://stackoverflow.com/questions/5764414/undefined-reference-to-sbrk
