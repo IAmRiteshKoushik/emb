@@ -1,20 +1,18 @@
 # Path to stlink folder for uploading code to board 
-# TODO: Upgrade the ST-LINK address
-STLINK=~/arm/stlink
+STLINK=/home/rk/arm/stlink
 
 # Put your source files here (*.c)
 SRCS=main.c system_stm32f4xx.c
 
 # Libraries source files, add ones that you intent to use
-SRCS += stm32f4xx_rcc.c
-SRCS += stm32f4xx_gpio.c
-SRCS += stm32f4xx_usart.c
+# SRCS += stm32f4xx_rcc.c
+# SRCS += stm32f4xx_gpio.c
+# SRCS += stm32f4xx_usart.c
 
 # Binaries will be generated with this name (.elf, .bin, .hex)
-PROJ_NAME=template
+PROJ_NAME=test
 
 # Put your STM32F4 library code directory here, change YOURUSERNAME to yours
-# TODO: Add in appropriate username 
 STM_COMMON=/home/rk/arm/STM32F4-Discovery_FW_V1.1.0
 
 # Compiler settings. Only edit CFLAGS to include other header files.
@@ -25,6 +23,7 @@ OBJCOPY=arm-none-eabi-objcopy
 CFLAGS  = -g -O2 -Wall -Tstm32_flash.ld
 CFLAGS += -DUSE_STDPERIPH_DRIVER
 CFLAGS += -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork
+CFLAGS += -specs=nano.specs -specs=nosys.specs
 CFLAGS += -mfloat-abi=hard -mfpu=fpv4-sp-d16
 CFLAGS += -I.
 
@@ -38,7 +37,7 @@ CFLAGS += -I$(STM_COMMON)/Utilities/STM32F4-Discovery
 SRCS += $(STM_COMMON)/Libraries/CMSIS/ST/STM32F4xx/Source/Templates/TrueSTUDIO/startup_stm32f4xx.s
 OBJS = $(SRCS:.c=.o)
 
-vpath %.c $(STM_COMMON)/Libraries/STM32F4xx_StdPeriph_Driver/src \
+# vpath %.c $(STM_COMMON)/Libraries/STM32F4xx_StdPeriph_Driver/src \
 
 .PHONY: proj
 
