@@ -1,6 +1,5 @@
 # Path to stlink folder for uploading code to board 
-# TODO: Upgrade the ST-LINK address
-STLINK=/home/rk/arm/stlink-1.5.1
+STLINK=/home/rk/arm/stlink
 
 # Put your source files here (*.c)
 SRCS=main.c system_stm32f4xx.c
@@ -8,13 +7,12 @@ SRCS=main.c system_stm32f4xx.c
 # Libraries source files, add ones that you intent to use
 SRCS += stm32f4xx_rcc.c
 SRCS += stm32f4xx_gpio.c
-SRCS += stm32f4xx_usart.c
+# SRCS += stm32f4xx_usart.c
 
 # Binaries will be generated with this name (.elf, .bin, .hex)
-PROJ_NAME=template
+PROJ_NAME=prog1-cookbook
 
 # Put your STM32F4 library code directory here, change YOURUSERNAME to yours
-# TODO: Add in appropriate username 
 STM_COMMON=/home/rk/arm/STM32F4-Discovery_FW_V1.1.0
 
 # Compiler settings. Only edit CFLAGS to include other header files.
@@ -25,6 +23,7 @@ OBJCOPY=arm-none-eabi-objcopy
 CFLAGS  = -g -O2 -Wall -Tstm32_flash.ld
 CFLAGS += -DUSE_STDPERIPH_DRIVER
 CFLAGS += -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork
+
 # NOTE: CHANGED from Stackoverflow answer (check README)
 CFLAGS += -specs=nano.specs -specs=nosys.specs		
 CFLAGS += -mfloat-abi=hard -mfpu=fpv4-sp-d16
